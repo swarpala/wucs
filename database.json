@@ -1,0 +1,7 @@
+{
+    "host": "localhost",
+    "user": "root",
+    "password": "impala0518",
+    "port": "3306",
+    "database": "community" 
+}

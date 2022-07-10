@@ -1,0 +1,12 @@
+table {
+    border-spacing: 0px;
+}
+
+.cell-content{
+    padding: 5px;
+    text-align : center;
+}
+
+#content-writing{
+    margin-top: 10px;
+}
