@@ -1,8 +1,8 @@
-const connection = require('../dbConfig');
+import { query } from '../dbConfig';
 
 const postCtrl = {
     getPosts : async (request, response) => {
-        connection.query(`
+        query(`
         select 
             p.sequence,
             u.userName,
@@ -22,7 +22,7 @@ const postCtrl = {
     insertPost : async (request, response) => {
         const {userSeq, title, content} = request.body;
         const sql = `insert into posts (userSeq, title, content) values (${userSeq},${title},${content})`
-        connection.query(sql, (error, rows)=>{
+        query(sql, (error, rows)=>{
             if(error) throw error;
             response.send(rows);
         });
@@ -30,4 +30,4 @@ const postCtrl = {
 
 }
 
-module.exports = postCtrl;
+export default postCtrl;

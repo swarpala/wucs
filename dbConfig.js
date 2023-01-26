@@ -1,10 +1,10 @@
-const fs = require('fs');
+import { readFileSync } from 'fs';
 
-const data = fs.readFileSync('./database.json');
+const data = readFileSync('./database.json');
 const conf = JSON.parse(data);
-const mysql = require('mysql');
+import { createConnection } from 'mysql';
 
-const connection = mysql.createConnection({
+const connection = createConnection({
     host:conf.host,
     user:conf.user,
     password:conf.password,
@@ -14,4 +14,4 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-module.exports = connection;
+export default connection;

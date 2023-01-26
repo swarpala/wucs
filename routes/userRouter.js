@@ -1,7 +1,7 @@
-const userCtrl = require("../controllers/userCtrl");
+import { getUsers, insertUsers } from "../controllers/userCtrl";
 const router = require('express').Router();
 
 router.route('/')
-    .get(userCtrl.getUsers)
-    .post(userCtrl.insertUsers)
-module.exports = router;
+    .get(getUsers)
+    .post(insertUsers)
+export default router;

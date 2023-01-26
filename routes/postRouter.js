@@ -1,7 +1,7 @@
-const postCtrl = require("../controllers/postCtrl");
+import { getPosts, insertPost } from "../controllers/postCtrl";
 const router = require('express').Router();
 
 router.route('/')
-    .get(postCtrl.getPosts)
-    .post(postCtrl.insertPost)
-module.exports = router;
+    .get(getPosts)
+    .post(insertPost)
+export default router;

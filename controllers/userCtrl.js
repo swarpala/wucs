@@ -1,8 +1,8 @@
-const connection = require('../dbConfig');
+import { query } from '../dbConfig';
 
 const userCtrl = {
     getUsers : async (request, response) => {
-        connection.query('select * from userinfo where isAdmin = 0', (error, rows)=>{
+        query('select * from userinfo where isAdmin = 0', (error, rows)=>{
             if(error) throw error;
             console.log(rows);
             response.send(rows);
@@ -11,7 +11,7 @@ const userCtrl = {
     insertUsers : async (request, response) => {
         const {userId, userName, password} = request.body;
         const sql = `insert into userinfo (userId, userName, password) values (${userId},${userName},${password})`
-        connection.query(sql, (error, rows)=>{
+        query(sql, (error, rows)=>{
             if(error) throw error;
             response.send(rows);
         });
@@ -19,4 +19,4 @@ const userCtrl = {
 
 }
 
-module.exports = userCtrl;
+export default userCtrl;
